@@ -5,8 +5,7 @@ The "insert" function will add an element to a particular
 spot in the list.
 "delete" will delete the first element with that
 particular value.
-Then, use "Test Run" and "Submit" to run the test cases
-at the bottom."""
+"""
 
 
 class Element(object):
