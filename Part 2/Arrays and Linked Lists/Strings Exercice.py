@@ -76,3 +76,31 @@ print()
 print("Pass" if ('retaw' == word_flipper('water')) else "Fail")
 print("Pass" if ('sihT si na elpmaxe' == word_flipper('This is an example')) else "Fail")
 print("Pass" if ('sihT si eno llams pets rof ...' == word_flipper('This is one small step for ...')) else "Fail")
+
+
+def hamming_distance(str1, str2):
+    """
+    Calculate the hamming distance of the two strings
+
+    Args:
+       str1(string),str2(string): Strings to be used for finding the hamming distance
+    Returns:
+       int: Hamming Distance
+    """
+    if len(str1) != len(str2):
+        return None
+    distance = 0
+    for index, char in enumerate(str1):
+        if str2[index] != char:
+            distance += 1
+    return distance
+
+
+# Test Cases
+
+print()
+print("Pass" if (10 == hamming_distance('ACTTGACCGGG', 'GATCCGGTACA')) else "Fail")
+print("Pass" if (1 == hamming_distance('shove', 'stove')) else "Fail")
+print("Pass" if (None == hamming_distance('Slot machines', 'Cash lost in me')) else "Fail")
+print("Pass" if (9 == hamming_distance('A gentleman', 'Elegant men')) else "Fail")
+print("Pass" if (2 == hamming_distance('0101010100011101', '0101010100010001')) else "Fail")
