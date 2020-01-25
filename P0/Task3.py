@@ -43,3 +43,28 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+
+
+def called(records):
+    numbers = []
+    for record in records:
+        if record[0][:5] == "(080)" and record[1] not in numbers:
+            numbers.append(record[1])
+    return numbers
+
+
+def codes(numbers):
+    list_of_codes = []
+    for number in numbers:
+        if number[0] == "(":
+            if number[1:number.index(")")] not in list_of_codes:
+                list_of_codes.append(number[1:number.index(")")])
+        elif int(number[0]) in [7, 8, 9]:
+            if number[:4] not in list_of_codes:
+                list_of_codes.append(number[:4])
+    return list_of_codes
+
+
+print("The numbers called by people in Bangalore have codes:")
+for code in codes(called(calls)):
+    print(code)
