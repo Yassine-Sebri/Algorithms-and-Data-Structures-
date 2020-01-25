@@ -65,6 +65,22 @@ def codes(numbers):
     return list_of_codes
 
 
+def percentage(records):
+    from_singapore = 0
+    to_singapore = 0
+    for record in records:
+        if record[0][:5] == "(080)":
+            from_singapore += 1
+            if record[1][:5] == "(080)":
+                to_singapore += 1
+    return float(to_singapore)/from_singapore
+
+
 print("The numbers called by people in Bangalore have codes:")
 for code in codes(called(calls)):
     print(code)
+
+print()
+
+print("{:0.2f}".format(percentage(calls)), "percent of calls from fixed lines in Bangalore are calls to other fixed "
+                                           "lines in Bangalore.")
