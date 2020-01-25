@@ -20,3 +20,36 @@ Print a message:
 September 2016.".
 """
 
+
+def numbers_list(records):
+    numbers = []
+    for record in records:
+        if record[0] not in numbers:
+            numbers.append(record[0])
+        if record[1] not in numbers:
+            numbers.append(record[1])
+    return numbers
+
+
+def time_spent(numbers, records):
+    time = {}
+    for number in numbers:
+        time[number] = 0
+    for record in records:
+        time[record[0]] += int(record[3])
+        time[record[1]] += int(record[3])
+    return time
+
+
+def most_time(time):
+    maximum_time = None
+    maximum_number = None
+    for number in time:
+        if maximum_time is None or time[number] > maximum_time:
+            maximum_time = time[number]
+            maximum_number = number
+    return maximum_number, maximum_time
+
+
+print(most_time(time_spent(numbers_list(calls), calls))[0], "spent the longest time,", most_time(
+    time_spent(numbers_list(calls), calls))[1], "seconds, on the phone during September 2016.")
